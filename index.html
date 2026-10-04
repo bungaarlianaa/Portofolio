@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio - Bunga Arliana</title>
+    
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #eb81cb;
+      --primary-hover: #d887bd;
+      --text-dark: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+      --bg-body: #f3cfee;
+      --bg-card: #ffffff;
+      --border-color: #e2e8f0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-body);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    section {
+      padding: 60px 0;
+    }
+
+    .navbar {
+      background-color: #ffffff;
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 64px;
+    }
+
+    .brand {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .hero {
+      padding: 80px 0 60px;
+    }
+
+    .hero-content {
+      max-width: 650px;
+    }
+
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 24px;
+      border: 1px solid var(--primary);
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-hover);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--text-dark);
+      border-color: var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background-color: #f1f5f9;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 24px;
+    }
+
+    .skills-section {
+      background-color: #ffffff;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      background-color: #eff6ff;
+      color: var(--primary);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(217, 18, 18, 0.04);
+    }
+
+    .card-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .card-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .card-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    .experience-section {
+      background-color: #ffffff;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .timeline {
+      max-width: 700px;
+    }
+
+    .timeline-item {
+      border-left: 2px solid #cbd5e1;
+      padding-left: 20px;
+      position: relative;
+      margin-bottom: 28px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: var(--primary);
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+
+    .timeline-role {
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .timeline-date {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .timeline-company {
+      font-size: 0.9rem;
+      color: var(--primary);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .timeline-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .contact-info p {
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+    }
+
+    .contact-form {
+      background-color: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text-dark);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+    }
+
+    .btn-submit {
+      width: 100%;
+    }
+
+    footer {
+      background-color: #ffffff;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      padding: 24px 0;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="#" class="brand">Bunga</a>
+      <ul class="nav-links">
+        <li><a href="#tentang">Tentang</a></li>
+        <li><a href="#sedang-dipelajari">Sedang Dipelajari</a></li>       
+        <li><a href="#pendidikan">Pendidikan</a></li>        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero" id="tentang">
+    <div class="container">
+      <div class="hero-content">
+        <img src="fotoak.jpeg" alt="Foto Bunga" class="profile-img">
+        <h1>Halo, Saya Bunga Arliana 👋</h1>
+        <p>Mahasiswa semester 5 Teknik Informatika di Universitas Negeri Surabaya. Saat ini, fokus utama saya tercurah pada pengerjaan berbagai  akademik dan tugas perkuliahan. Melalui rutinitas ini, saya mengasah keterampilan Frontend, Desain, dll secara konsisten.</p>
+        <div class="btn-group">
+        <a href="#sedang-dipelajari" class="btn btn-primary">Lihat yang sedang saya pelajari</a>          <a href="#kontak" class="btn btn-secondary">Hubungi Saya</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills-section">
+    <div class="container">
+      <h2 class="section-title">Keahlian & Teknologi</h2>
+      <div class="skill-tags">
+        <span class="tag">Web & Frontend (Dasar - Menengah)</span>
+        <span class="tag">Database & Backend Dasar</span>
+        <span class="tag">Figma</span>
+        <span class="tag">Logika & Bahasa Pemrograman Kampus</span>
+      </div>
+    </div>
+  </section>
+
+<section id="sedang-dipelajari">
+  <div class="container">
+    <h2 class="section-title">Fokus Belajar Saat Ini</h2>
+    <div class="projects-grid">
+      
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Konsumsi REST API</h3>
+          <p class="card-text">Mempelajari cara mengambil data dari server luar menggunakan Fetch API JavaScript dan menyajikannya secara dinamis di web.</p>
+          <div class="skill-tags" style="margin-top: 12px;">
+            <span class="tag">Fetch API</span>
+            <span class="tag">JSON</span>
+            <span class="tag">REST API</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Framework React.js</h3>
+          <p class="card-text">Mendalami konsep komponen web reusabel dan alur data antar halaman agar pembuatan aplikasi interaktif lebih terstruktur.</p>
+          <div class="skill-tags" style="margin-top: 12px;">
+            <span class="tag">React.js</span>
+            <span class="tag">JavaScript</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Tailwind CSS</h3>
+          <p class="card-text">Mencoba alur kerja styling modern dengan utility classes agar proses membuat antarmuka responsif jauh lebih cepat.</p>
+          <div class="skill-tags" style="margin-top: 12px;">
+            <span class="tag">Tailwind</span>
+            <span class="tag">CSS3</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="experience-section" id="pendidikan">
+  <div class="container">
+    <h2 class="section-title">Pendidikan & Aktivitas Akademik</h2>
+    <div class="timeline">
+      
+      <div class="timeline-item">
+        <div class="timeline-header">
+          <span class="timeline-role">S1 Teknik Informatika</span>
+          <span class="timeline-date">2024 - Sekarang</span>
+        </div>
+        <div class="timeline-company">Universitas Negeri Surabaya (UNESA)</div>
+        <p class="timeline-desc">Saat ini menempuh Semester 5. Aktif mengikuti perkuliahan, praktikum laboratorium, dan penyelesaian tugas-tugas berbasis pengembangan perangkat lunak.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-header">
+          <span class="timeline-role">MIPA</span>
+          <span class="timeline-date">2021 - 2024</span>
+        </div>
+        <div class="timeline-company">SMA Negeri 1 Kediri </div>
+        <p class="timeline-desc">Lulus dengan fokus pada ilmu pengetahuan alam.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <section id="kontak">
+    <div class="container">
+      <div class="contact-layout">
+        
+        <div class="contact-info">
+          <h2 class="section-title">Mari Terhubung</h2>
+          <p>Punya proyek yang ingin didiskusikan atau sekadar ingin menyapa? Silakan kirim pesan melalui formulir ini.</p>
+          <br>
+          <p><strong>Email:</strong> bunganabila16@gmail.com</p>
+          <p><strong>Lokasi:</strong> Surabaya, Indonesia</p>
+          <p><strong>GitHub:</strong> github.com/bungaarlianaa</p>
+        </div>
+
+        <div class="contact-form">
+          <form action="#" method="POST">
+            <div class="form-group">
+              <label for="nama">Nama Lengkap</label>
+              <input type="text" id="nama" class="form-control" placeholder="Masukkan nama Anda" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" class="form-control" placeholder="...@email.com" required>
+            </div>
+            <div class="form-group">
+              <label for="pesan">Pesan</label>
+              <textarea id="pesan" class="form-control" rows="4" placeholder="Tuliskan pesan Anda" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-submit">Kirim Pesan</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>bungaarlianaa</p>
+    </div>
+  </footer>
+
+</body>
+</html>
